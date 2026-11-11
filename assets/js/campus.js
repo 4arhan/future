@@ -235,7 +235,7 @@
   var born = performance.now(), built = false, T = 0;
   function grow(delay) {
     if (built) return 1;
-    return easeOut(((performance.now() - born) / 1000 - delay) / 0.7);
+    return easeOut(((performance.now() - born) / 1000 - delay * 0.72) / 0.6);
   }
 
   /* ---------- cables ---------- */
@@ -1049,7 +1049,7 @@
   function draw(ms) {
     if (!cw) return;
     T = reduce.matches ? 0 : (ms - t0) / 1000;
-    if (!built && (reduce.matches || (ms - born) / 1000 > 2.3)) built = true;
+    if (!built && (reduce.matches || (ms - born) / 1000 > 1.7)) built = true;
     stepTransition(ms);
     if (setPalette(night) || bgDirty) renderGround();
     kx = KX * shLen; ky = KY * shLen;

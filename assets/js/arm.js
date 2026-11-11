@@ -81,14 +81,14 @@
     }
   }
 
-  function resetParts() {
+  function resetParts(fadeIn) {
     var t = G.table, z = G.size;
     parts = [
       { x: t.x0 + 0.78 * u, y: t.y, falling: false },
       { x: t.x0 + 2.05 * u, y: t.y, falling: false },
       { x: t.x0 + 0.78 * u, y: t.y - z, falling: false }
     ];
-    held = null; doneAt = 0; bornAt = performance.now();
+    held = null; doneAt = 0; bornAt = fadeIn ? performance.now() : -1e9;   // only fade in after a finished cycle
   }
 
   /* ---------- world rules ---------- */
@@ -281,7 +281,7 @@
       mode = 'auto'; plan = []; setGrip(false);
     }
     if (doneAt) {
-      if (now - doneAt > 2400) { resetParts(); plan = []; }
+      if (now - doneAt > 2400) { resetParts(true); plan = []; }
     } else if (mode === 'auto' && !reduce.matches) {
       if (!plan.length && wait <= 0) autoPlan();
       runPlan(dt);
