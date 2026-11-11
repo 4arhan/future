@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Farfield | Solar farms, data centers, robotics and technician training</title>
+<meta name="description" content="Farfield designs, builds and operates solar farms, battery storage, data centers and robotic automation, and trains the technicians who keep them running.">
+<meta name="theme-color" content="#EDF1F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A1220" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Farfield | We build the sites the future runs on">
+<meta property="og:description" content="Solar farms, battery storage, data centers and robotic automation, with a training academy for the technicians who run them.">
+<meta property="og:image" content="assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<script>
+/* Runs before first paint: marks JS as available and restores a saved Day/Night choice. */
+(function () {
+  var r = document.documentElement;
+  r.classList.add('js');
+  try {
+    var t = localStorage.getItem('ff-theme');
+    if ((t === 'light' || t === 'dark') && !r.hasAttribute('data-theme')) r.setAttribute('data-theme', t);
+  } catch (e) {}
+})();
+</script>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr" id="top">
+  <div class="wrap hdr__in">
+    <a class="brand" href="#top" aria-label="Farfield, back to top">
+      <svg class="brand__mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false">
+        <circle class="brand__sun" cx="16" cy="9" r="5"/>
+        <path class="brand__field" d="M2 21 16 14l14 7-14 7z"/>
+      </svg>
+      <span class="brand__name">Farfield</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul class="nav__list">
+        <li><a href="#energy">Energy</a></li>
+        <li><a href="#compute">Data centers</a></li>
+        <li><a href="#robotics">Robotics</a></li>
+        <li><a href="#academy">Academy</a></li>
+        <li><a href="#process">How we work</a></li>
+      </ul>
+    </nav>
+
+    <div class="hdr__tools">
+      <button class="iconbtn" type="button" id="theme-toggle" aria-label="Switch to night view">
+        <svg class="icon icon--sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>
+        <svg class="icon icon--moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z"/></svg>
+      </button>
+      <a class="btn btn--primary btn--sm hdr__cta" href="#contact">Start a project</a>
+      <button class="menubtn" type="button" id="menu-toggle" aria-expanded="false" aria-controls="nav">
+        <span class="menubtn__bars" aria-hidden="true"></span>
+        <span class="menubtn__label">Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO: the site plan ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero__in">
+      <div class="hero__copy">
+        <p class="hero__kicker">Solar · Storage · Data centers · Robotics · Training</p>
+        <h1 class="hero__title" id="hero-title">We build the sites the future runs on.</h1>
+        <p class="hero__lead">Farfield designs, builds and operates solar farms, battery storage, data centers and robotic automation. Then we train the local technicians who keep them running.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#contact">Start a project <svg class="btn__arrow" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
+          <a class="btn btn--line" href="#academy">See the Academy</a>
+        </div>
+      </div>
+
+      <figure class="scene" id="scene">
+        <div class="scene__stage">
+          <canvas class="scene__canvas" id="campus" role="img" aria-label="Animated drawing of a Farfield site seen from above at an angle. A solar array, battery containers, an EV charging canopy, a data hall, a robotics cell and a training academy sit on one plot, linked by power cables."></canvas>
+        </div>
+        <ul class="scene__callouts" id="callouts" aria-label="Areas of the site">
+          <li><a class="callout" href="#energy" data-zone="pv"><span class="callout__code">E1</span><span class="callout__name">Solar array</span></a></li>
+          <li><a class="callout" href="#energy" data-zone="bess"><span class="callout__code">E2</span><span class="callout__name">Battery storage</span></a></li>
+          <li><a class="callout" href="#more" data-zone="ev"><span class="callout__code">E3</span><span class="callout__name">EV charging</span></a></li>
+          <li><a class="callout" href="#compute" data-zone="hall"><span class="callout__code">C1</span><span class="callout__name">Data hall</span></a></li>
+          <li><a class="callout" href="#robotics" data-zone="robot"><span class="callout__code">R1</span><span class="callout__name">Robotics cell</span></a></li>
+          <li><a class="callout" href="#academy" data-zone="academy"><span class="callout__code">T1</span><span class="callout__name">Academy</span></a></li>
+        </ul>
+        <figcaption class="scene__bar">
+          <div class="scene__row">
+            <div class="daynight" role="group" aria-label="Time of day on the site">
+              <button class="daynight__btn" type="button" data-set-theme="light" aria-pressed="false">Day</button>
+              <button class="daynight__btn" type="button" data-set-theme="dark" aria-pressed="false">Night</button>
+            </div>
+            <p class="scene__note">Illustrative site</p>
+          </div>
+          <p class="scene__status" id="scene-status" aria-live="polite">
+            <span class="when-day">Solar is running the site and charging the batteries.</span>
+            <span class="when-night">The sun is down. The batteries are running the site.</span>
+          </p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ The four systems (legend for the plan above) ============ -->
+  <section class="systems" aria-labelledby="systems-title">
+    <div class="wrap">
+      <h2 class="systems__title" id="systems-title">One site. Four systems that feed each other.</h2>
+      <ul class="systems__list">
+        <li>
+          <a class="system" href="#energy">
+            <span class="code" aria-hidden="true">E</span>
+            <span class="system__name">Energy</span>
+            <span class="system__text">Solar and batteries make the power.</span>
+          </a>
+        </li>
+        <li>
+          <a class="system" href="#compute">
+            <span class="code" aria-hidden="true">C</span>
+            <span class="system__name">Compute</span>
+            <span class="system__text">Data halls turn power into computing.</span>
+          </a>
+        </li>
+        <li>
+          <a class="system" href="#robotics">
+            <span class="code" aria-hidden="true">R</span>
+            <span class="system__name">Robotics</span>
+            <span class="system__text">Robots build, assemble and inspect.</span>
+          </a>
+        </li>
+        <li>
+          <a class="system" href="#academy">
+            <span class="code" aria-hidden="true">T</span>
+            <span class="system__name">Training</span>
+            <span class="system__text">Local technicians keep it all running.</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ E: ENERGY ============ -->
+  <section class="sec pillar" id="energy" aria-labelledby="energy-title">
+    <div class="wrap pillar__grid">
+      <header class="pillar__head">
+        <p class="tag"><span class="code" aria-hidden="true">E</span> Energy</p>
+        <h2 class="h2" id="energy-title">Solar farms with storage built in.</h2>
+        <p class="lead">We take a solar project from the first land survey to the grid connection. Battery storage goes in from day one, so the power is still there after sunset.</p>
+        <div class="plate rv">
+          <p class="plate__title">Typical project</p>
+          <dl class="plate__rows">
+            <div><dt>Size</dt><dd>1 to 200 MWp</dd></div>
+            <div><dt>Mounting</dt><dd>Fixed tilt or single-axis tracking</dd></div>
+            <div><dt>Storage</dt><dd>2 to 8 hours, LFP batteries</dd></div>
+            <div><dt>Design life</dt><dd>30 years</dd></div>
+          </dl>
+        </div>
+      </header>
+
+      <div class="pillar__body">
+        <figure class="fig rv" id="day-fig">
+          <figcaption class="fig__head">
+            <h3 class="fig__title">24 hours on a solar-plus-storage site</h3>
+            <p class="fig__sub">Power as a share of peak solar output, on a clear day</p>
+          </figcaption>
+          <ul class="legend" aria-label="Legend">
+            <li><span class="key key--line key--solar" aria-hidden="true"></span>Solar output</li>
+            <li><span class="key key--line key--load" aria-hidden="true"></span>Site load</li>
+            <li><span class="key key--area key--solar" aria-hidden="true"></span>Surplus charging the batteries</li>
+            <li><span class="key key--area key--batt" aria-hidden="true"></span>Supplied from the batteries</li>
+          </ul>
+          <div class="chart" id="day-chart">
+            <p class="chart__fallback">Solar output climbs from zero at 06:00 to its peak at noon and falls back to zero at 18:00. The site load stays flat at 28% of that peak. The midday surplus charges the batteries, and the batteries carry the load overnight.</p>
+          </div>
+          <div class="fig__foot">
+            <p class="fig__note">Illustrative model. Real sites also lean on the grid.</p>
+            <button class="textbtn" type="button" id="day-table-toggle" aria-expanded="false" aria-controls="day-table">Show the numbers</button>
+          </div>
+          <div class="tablewrap" id="day-table" hidden></div>
+        </figure>
+
+        <ul class="features">
+          <li class="rv">
+            <h3>Site and grid studies</h3>
+            <p>Yield modeling, soil and shading surveys, and the application to connect to the grid.</p>
+          </li>
+          <li class="rv">
+            <h3>Engineering and construction</h3>
+            <p>Fixed-tilt or tracking arrays, built by our crews and vetted local partners.</p>
+          </li>
+          <li class="rv">
+            <h3>Battery storage</h3>
+            <p>Containerized battery systems sized to carry your load through the evening and the night.</p>
+          </li>
+          <li class="rv">
+            <h3>Operations and maintenance</h3>
+            <p>Round-the-clock remote monitoring, drone thermal surveys and robotic panel cleaning.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ C: COMPUTE ============ -->
+  <section class="sec pillar pillar--alt" id="compute" aria-labelledby="compute-title">
+    <div class="wrap pillar__grid">
+      <header class="pillar__head">
+        <p class="tag"><span class="code" aria-hidden="true">C</span> Compute</p>
+        <h2 class="h2" id="compute-title">Data centers that start with the power plan.</h2>
+        <p class="lead">New computing capacity is held back by electricity and cooling. We design the hall around both from the first drawing, and put solar and storage on site where the land allows.</p>
+        <div class="plate rv">
+          <p class="plate__title">Typical hall</p>
+          <dl class="plate__rows">
+            <div><dt>Rack power</dt><dd>10 to 120 kW per rack</dd></div>
+            <div><dt>Cooling</dt><dd>Air, rear-door or direct-to-chip liquid</dd></div>
+            <div><dt>Redundancy</dt><dd>N+1 power and cooling</dd></div>
+            <div><dt>Efficiency target</dt><dd>PUE 1.2 or better</dd></div>
+          </dl>
+        </div>
+      </header>
+
+      <div class="pillar__body">
+        <figure class="fig fig--racks rv">
+          <div class="racks">
+            <canvas class="racks__canvas" id="racks" role="img" aria-label="Front view of a row of eight server racks with status lights and liquid cooling pipes."></canvas>
+          </div>
+          <figcaption class="fig__cap">Rack row, front view. Coolant runs to every server, so the row keeps working as the hardware gets hotter.</figcaption>
+        </figure>
+
+        <figure class="fig rv" id="cooling-fig">
+          <figcaption class="fig__head">
+            <h3 class="fig__title">How much power a rack can take, by cooling method</h3>
+            <p class="fig__sub">Typical design ranges in kilowatts per rack</p>
+          </figcaption>
+          <div class="ranges" role="table" aria-label="Rack power range by cooling method">
+            <div class="ranges__row" role="row">
+              <span class="ranges__name" role="rowheader">Air</span>
+              <span class="ranges__track" role="presentation"><span class="ranges__bar" style="--from:5;--to:20" aria-hidden="true"></span></span>
+              <span class="ranges__val" role="cell">5 to 20 kW</span>
+            </div>
+            <div class="ranges__row" role="row">
+              <span class="ranges__name" role="rowheader">Rear-door heat exchanger</span>
+              <span class="ranges__track" role="presentation"><span class="ranges__bar" style="--from:20;--to:50" aria-hidden="true"></span></span>
+              <span class="ranges__val" role="cell">20 to 50 kW</span>
+            </div>
+            <div class="ranges__row" role="row">
+              <span class="ranges__name" role="rowheader">Direct-to-chip liquid</span>
+              <span class="ranges__track" role="presentation"><span class="ranges__bar" style="--from:50;--to:120" aria-hidden="true"></span></span>
+              <span class="ranges__val" role="cell">50 to 120 kW</span>
+            </div>
+            <div class="ranges__row" role="row">
+              <span class="ranges__name" role="rowheader">Immersion</span>
+              <span class="ranges__track" role="presentation"><span class="ranges__bar" style="--from:80;--to:200" aria-hidden="true"></span></span>
+              <span class="ranges__val" role="cell">80 to 200 kW</span>
+            </div>
+            <div class="ranges__axis" aria-hidden="true">
+              <span></span>
+              <span class="ranges__ticks"><i style="--at:0">0</i><i style="--at:50">50</i><i style="--at:100">100</i><i style="--at:150">150</i><i style="--at:200">200</i></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="fig__foot">
+            <p class="fig__note">Indicative ranges. The right choice depends on your hardware and climate.</p>
+          </div>
+        </figure>
+
+        <ul class="features">
+          <li class="rv">
+            <h3>Ready for AI hardware</h3>
+            <p>Floors, power and piping sized for dense racks. Liquid cooling loops are designed in, even if you start on air.</p>
+          </li>
+          <li class="rv">
+            <h3>Modular growth</h3>
+            <p>Prefabricated power and cooling blocks let you add capacity as demand grows.</p>
+          </li>
+          <li class="rv">
+            <h3>Efficient by design</h3>
+            <p>Free cooling where the climate allows, and connections ready for reusing waste heat.</p>
+          </li>
+          <li class="rv">
+            <h3>Edge and micro sites</h3>
+            <p>Containerized data centers for factories, campuses and telecom sites.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ R: ROBOTICS ============ -->
+  <section class="sec robotics inv" id="robotics" aria-labelledby="robotics-title">
+    <div class="wrap">
+      <header class="robotics__head">
+        <p class="tag"><span class="code" aria-hidden="true">R</span> Robotics</p>
+        <h2 class="h2" id="robotics-title">Robots that earn their floor space.</h2>
+        <p class="lead">We put robot arms, cobots and autonomous machines to work on production lines and energy sites. You get a cell that runs, and a team trained to run it.</p>
+      </header>
+
+      <div class="robotics__grid">
+        <figure class="armfig rv">
+          <div class="armfig__stage">
+            <canvas class="armfig__canvas" id="arm" role="img" aria-label="Side view of a robot arm moving battery modules from a bench into a tray. It follows your pointer, and pressing closes the gripper."></canvas>
+            <dl class="armfig__readout" aria-hidden="true">
+              <div><dt>Shoulder</dt><dd id="arm-j1">0°</dd></div>
+              <div><dt>Elbow</dt><dd id="arm-j2">0°</dd></div>
+              <div><dt>Wrist</dt><dd id="arm-j3">0°</dd></div>
+              <div><dt>Gripper</dt><dd id="arm-grip">Open</dd></div>
+            </dl>
+          </div>
+          <figcaption class="armfig__cap">
+            <strong>Try it.</strong> Move your pointer and the arm follows. Press and hold over a battery module to pick it up, then let go over the tray. The arm works out its joint angles as you go, a simple version of the math an industrial robot controller solves hundreds of times a second.
+          </figcaption>
+        </figure>
+
+        <ul class="features features--stack">
+          <li class="rv">
+            <h3>Robotic work cells</h3>
+            <p>Pick and place, palletizing, welding and machine tending, with guarding and safety controls designed in.</p>
+          </li>
+          <li class="rv">
+            <h3>Cobots for small teams</h3>
+            <p>Collaborative arms that share a bench with people and can be retaught in an afternoon.</p>
+          </li>
+          <li class="rv">
+            <h3>Vision and inspection</h3>
+            <p>Cameras and trained models that check every part and log every result.</p>
+          </li>
+          <li class="rv">
+            <h3>Robots for energy sites</h3>
+            <p>Robots that carry and place solar panels during construction, then clean and inspect them for decades.</p>
+          </li>
+          <li class="rv">
+            <h3>Controls and integration</h3>
+            <p>PLC, SCADA and factory software links, so each cell reports to the rest of the plant.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ More technology ============ -->
+  <section class="sec more" id="more" aria-labelledby="more-title">
+    <div class="wrap">
+      <header class="sec__head">
+        <h2 class="h2" id="more-title">More of what a modern site needs.</h2>
+        <p class="lead">Each of these plugs into the same power, data and control systems, so you can add them on day one or in year ten.</p>
+      </header>
+      <ul class="index">
+        <li class="rv"><span class="code code--sm"><span aria-hidden="true">E</span><span class="vh">Energy</span></span><h3>EV charging hubs</h3><p>Fast chargers under solar canopies, with a buffer battery to keep grid costs down.</p></li>
+        <li class="rv"><span class="code code--sm"><span aria-hidden="true">E</span><span class="vh">Energy</span></span><h3>Microgrids</h3><p>Solar, storage and backup generation that keep a campus running when the grid drops.</p></li>
+        <li class="rv"><span class="code code--sm"><span aria-hidden="true">R</span><span class="vh">Robotics</span></span><h3>Drone inspection</h3><p>Thermal and visual surveys of arrays, roofs and power lines.</p></li>
+        <li class="rv"><span class="code code--sm"><span aria-hidden="true">C</span><span class="vh">Compute</span></span><h3>Digital twins</h3><p>A live 3D model of your site for planning, training and troubleshooting.</p></li>
+        <li class="rv"><span class="code code--sm"><span aria-hidden="true">C</span><span class="vh">Compute</span></span><h3>Control rooms</h3><p>One monitoring view across energy, cooling and machines.</p></li>
+        <li class="rv"><span class="code code--sm"><span aria-hidden="true">R</span><span class="vh">Robotics</span></span><h3>Smart sensors</h3><p>Condition monitoring that flags a failing part before it stops the line.</p></li>
+        <li class="rv"><span class="code code--sm"><span aria-hidden="true">C</span><span class="vh">Compute</span></span><h3>Heat reuse</h3><p>Waste heat from servers piped to greenhouses, pools or district heating.</p></li>
+        <li class="rv"><span class="code code--sm"><span aria-hidden="true">E</span><span class="vh">Energy</span></span><h3>Agrivoltaics</h3><p>Raised solar arrays with crops or grazing underneath.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ Estimator ============ -->
+  <section class="sec estimate" id="estimate" aria-labelledby="estimate-title">
+    <div class="wrap estimate__grid">
+      <header class="estimate__head">
+        <h2 class="h2" id="estimate-title">Sketch a solar farm.</h2>
+        <p class="lead">Move the sliders for a first rough picture of what a piece of land could do. A site study replaces every one of these numbers.</p>
+
+        <form class="calc" id="calc" aria-label="Solar farm estimator">
+          <div class="field field--range">
+            <div class="field__top">
+              <label for="calc-area">Land area</label>
+              <output for="calc-area" id="calc-area-out">40 hectares (99 acres)</output>
+            </div>
+            <input type="range" id="calc-area" name="area" min="2" max="400" step="2" value="40">
+            <div class="field__scale" aria-hidden="true"><span>2 ha</span><span>400 ha</span></div>
+          </div>
+
+          <fieldset class="field field--seg">
+            <legend>Sunshine at the site</legend>
+            <div class="seg">
+              <input type="radio" name="sun" id="calc-sun-1" value="1200">
+              <label for="calc-sun-1">Moderate</label>
+              <input type="radio" name="sun" id="calc-sun-2" value="1600" checked>
+              <label for="calc-sun-2">Sunny</label>
+              <input type="radio" name="sun" id="calc-sun-3" value="2000">
+              <label for="calc-sun-3">Very sunny</label>
+            </div>
+          </fieldset>
+        </form>
+      </header>
+
+      <div class="estimate__out">
+        <ul class="stats">
+          <li class="stat stat--lead">
+            <span class="stat__label">Solar capacity</span>
+            <span class="stat__value"><span id="out-mwp">20</span> <span class="stat__unit">MWp</span></span>
+          </li>
+          <li class="stat">
+            <span class="stat__label">Energy per year</span>
+            <span class="stat__value"><span id="out-gwh">32</span> <span class="stat__unit">GWh</span></span>
+          </li>
+          <li class="stat">
+            <span class="stat__label">Homes' worth of electricity</span>
+            <span class="stat__value"><span id="out-homes">8,000</span></span>
+          </li>
+          <li class="stat">
+            <span class="stat__label">CO₂ avoided per year</span>
+            <span class="stat__value"><span id="out-co2">14,400</span> <span class="stat__unit">tonnes</span></span>
+          </li>
+          <li class="stat">
+            <span class="stat__label">Data center it could run around the clock, with storage</span>
+            <span class="stat__value"><span id="out-it">2.7</span> <span class="stat__unit">MW of IT load</span></span>
+          </li>
+        </ul>
+        <p class="estimate__notes">Assumes 2 hectares of land per MWp, <span id="out-yield">1,600</span> kWh per kWp per year, 4,000 kWh per home per year, 0.45 tonnes of CO₂ per MWh of grid power replaced, a data center PUE of 1.2 and 10% lost in battery storage.</p>
+        <a class="btn btn--line" href="#contact" data-topic="Solar and storage">Ask for a real site study</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ T: ACADEMY ============ -->
+  <section class="sec academy" id="academy" aria-labelledby="academy-title">
+    <div class="wrap">
+      <div class="academy__banner">
+        <div class="academy__bannertext">
+          <p class="tag tag--onsun"><span class="code" aria-hidden="true">T</span> Training · Farfield Academy</p>
+          <h2 class="h2 academy__title" id="academy-title">The future needs technicians.</h2>
+          <p class="lead">Every solar farm, data hall and robot cell needs skilled people to install it, commission it and keep it running. The Academy trains them for those jobs. You don't need a degree to start.</p>
+          <div class="academy__actions">
+            <a class="btn btn--ink" href="#contact" data-topic="A place at the Academy">Join the waitlist</a>
+            <a class="btn btn--inkline" href="#contact" data-topic="Training for my team">Train your team</a>
+          </div>
+        </div>
+        <ol class="path" aria-label="How the training works">
+          <li><span class="path__n" aria-hidden="true">1</span><div><h3>Foundations</h3><p>Electrical basics, tools, safety and reading drawings.</p></div></li>
+          <li><span class="path__n" aria-hidden="true">2</span><div><h3>Specialist track</h3><p>Hands-on labs with the equipment used on live sites.</p></div></li>
+          <li><span class="path__n" aria-hidden="true">3</span><div><h3>Site placement</h3><p>Work on a real project beside an experienced technician.</p></div></li>
+          <li><span class="path__n" aria-hidden="true">4</span><div><h3>Assessment and hiring</h3><p>A practical assessment, help with certification, and introductions to employers.</p></div></li>
+        </ol>
+      </div>
+
+      <div class="tracks" id="tracks">
+        <div class="tracks__head">
+          <h3 class="h3">Six tracks into work that is growing</h3>
+          <p>Pick a track to see what you learn and where it leads.</p>
+        </div>
+
+        <div class="tracks__tabs" role="tablist" aria-label="Training tracks" aria-orientation="vertical">
+          <button class="tracktab" type="button" role="tab" id="tab-solar" aria-controls="panel-solar" aria-selected="true"><span class="tracktab__name">Solar technician</span><span class="tracktab__len">12 weeks</span></button>
+          <button class="tracktab" type="button" role="tab" id="tab-battery" aria-controls="panel-battery" aria-selected="false" tabindex="-1"><span class="tracktab__name">Battery storage technician</span><span class="tracktab__len">10 weeks</span></button>
+          <button class="tracktab" type="button" role="tab" id="tab-dc" aria-controls="panel-dc" aria-selected="false" tabindex="-1"><span class="tracktab__name">Data center technician</span><span class="tracktab__len">14 weeks</span></button>
+          <button class="tracktab" type="button" role="tab" id="tab-robot" aria-controls="panel-robot" aria-selected="false" tabindex="-1"><span class="tracktab__name">Robotics and automation technician</span><span class="tracktab__len">16 weeks</span></button>
+          <button class="tracktab" type="button" role="tab" id="tab-ev" aria-controls="panel-ev" aria-selected="false" tabindex="-1"><span class="tracktab__name">EV charging technician</span><span class="tracktab__len">8 weeks</span></button>
+          <button class="tracktab" type="button" role="tab" id="tab-drone" aria-controls="panel-drone" aria-selected="false" tabindex="-1"><span class="tracktab__name">Drone inspection operator</span><span class="tracktab__len">6 weeks</span></button>
+        </div>
+
+        <div class="tracks__panels">
+          <article class="track" role="tabpanel" id="panel-solar" aria-labelledby="tab-solar" tabindex="0">
+            <h4 class="track__title">Solar technician</h4>
+            <p class="track__sum">Install, wire and commission solar arrays, from a rooftop to a 100-hectare farm.</p>
+            <div class="track__cols">
+              <div>
+                <h5>You learn</h5>
+                <ul class="ticks">
+                  <li>Mounting systems and trackers</li>
+                  <li>DC wiring, combiner boxes and inverters</li>
+                  <li>Testing with I-V curve tracers and thermal cameras</li>
+                  <li>Working safely at height and around live DC</li>
+                </ul>
+              </div>
+              <div>
+                <h5>It leads to</h5>
+                <p>Solar installer, operations and maintenance technician, commissioning assistant.</p>
+                <h5>Format</h5>
+                <p>12 weeks. Workshop labs, then placement on a live array.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="track" role="tabpanel" id="panel-battery" aria-labelledby="tab-battery" tabindex="0">
+            <h4 class="track__title">Battery storage technician</h4>
+            <p class="track__sum">Commission and maintain the grid-scale batteries that make solar useful after dark.</p>
+            <div class="track__cols">
+              <div>
+                <h5>You learn</h5>
+                <ul class="ticks">
+                  <li>Battery chemistry and battery management systems</li>
+                  <li>Power conversion and protection</li>
+                  <li>Thermal management and fire safety</li>
+                  <li>High-voltage switching procedures</li>
+                </ul>
+              </div>
+              <div>
+                <h5>It leads to</h5>
+                <p>Storage technician, commissioning technician, field service technician.</p>
+                <h5>Format</h5>
+                <p>10 weeks. Workshop labs, then placement in a battery yard.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="track" role="tabpanel" id="panel-dc" aria-labelledby="tab-dc" tabindex="0">
+            <h4 class="track__title">Data center technician</h4>
+            <p class="track__sum">Keep power, cooling and hardware running in a hall that is never allowed to stop.</p>
+            <div class="track__cols">
+              <div>
+                <h5>You learn</h5>
+                <ul class="ticks">
+                  <li>Power distribution, UPS systems and generators</li>
+                  <li>Air and liquid cooling systems</li>
+                  <li>Fiber and structured cabling</li>
+                  <li>Server hardware swaps and monitoring tools</li>
+                </ul>
+              </div>
+              <div>
+                <h5>It leads to</h5>
+                <p>Data center technician, critical facilities technician, cabling technician.</p>
+                <h5>Format</h5>
+                <p>14 weeks. Training hall labs, then shifts in a live facility.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="track" role="tabpanel" id="panel-robot" aria-labelledby="tab-robot" tabindex="0">
+            <h4 class="track__title">Robotics and automation technician</h4>
+            <p class="track__sum">Set up, program and maintain the robot cells that modern factories depend on.</p>
+            <div class="track__cols">
+              <div>
+                <h5>You learn</h5>
+                <ul class="ticks">
+                  <li>Programming a robot with a teach pendant</li>
+                  <li>PLCs, sensors and machine vision</li>
+                  <li>Pneumatics, grippers and end-of-arm tooling</li>
+                  <li>Safety systems and preventive maintenance</li>
+                </ul>
+              </div>
+              <div>
+                <h5>It leads to</h5>
+                <p>Robot technician, automation technician, maintenance technician.</p>
+                <h5>Format</h5>
+                <p>16 weeks. Robot lab time every week, then placement on a production line.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="track" role="tabpanel" id="panel-ev" aria-labelledby="tab-ev" tabindex="0">
+            <h4 class="track__title">EV charging technician</h4>
+            <p class="track__sum">Install and service the chargers going into parking lots, depots and highway stops.</p>
+            <div class="track__cols">
+              <div>
+                <h5>You learn</h5>
+                <ul class="ticks">
+                  <li>Installing AC and DC fast chargers</li>
+                  <li>Network setup and commissioning</li>
+                  <li>Fault diagnosis and repair</li>
+                  <li>Electrical safety and inspection</li>
+                </ul>
+              </div>
+              <div>
+                <h5>It leads to</h5>
+                <p>EV charger installer, field service technician.</p>
+                <h5>Format</h5>
+                <p>8 weeks. Workshop labs, then supervised installs.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="track" role="tabpanel" id="panel-drone" aria-labelledby="tab-drone" tabindex="0">
+            <h4 class="track__title">Drone inspection operator</h4>
+            <p class="track__sum">Fly thermal and visual surveys that find faults across thousands of panels in an afternoon.</p>
+            <div class="track__cols">
+              <div>
+                <h5>You learn</h5>
+                <ul class="ticks">
+                  <li>Flight planning and airspace rules</li>
+                  <li>Thermal imaging of solar arrays</li>
+                  <li>Photogrammetry and site mapping</li>
+                  <li>Turning survey data into repair reports</li>
+                </ul>
+              </div>
+              <div>
+                <h5>It leads to</h5>
+                <p>Drone pilot, inspection analyst.</p>
+                <h5>Format</h5>
+                <p>6 weeks. Flight training, then surveys of working sites.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="who">
+        <h3 class="h3">Who it is for</h3>
+        <ul class="who__list">
+          <li class="rv"><h4>Recent school graduates</h4><p>A skilled trade, learned on real equipment, without student debt.</p></li>
+          <li class="rv"><h4>Career changers</h4><p>A structured way into energy and tech from any background.</p></li>
+          <li class="rv"><h4>Working tradespeople</h4><p>Electricians and mechanics adding solar, battery or robot skills.</p></li>
+          <li class="rv"><h4>Employers</h4><p>Short courses that bring a whole team up to speed on new equipment.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Process ============ -->
+  <section class="sec process" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <header class="sec__head">
+        <h2 class="h2" id="process-title">From first call to a running site.</h2>
+        <p class="lead">One team stays with the project the whole way, so nothing is lost between the drawing and the handover.</p>
+      </header>
+      <ol class="steps">
+        <li class="rv"><span class="steps__n" aria-hidden="true">01</span><h3>Assess</h3><p>We study the land, the grid, the load and the numbers. You get a clear go or no-go.</p></li>
+        <li class="rv"><span class="steps__n" aria-hidden="true">02</span><h3>Design</h3><p>Engineers model the site as one system, from panel layout to rack rows.</p></li>
+        <li class="rv"><span class="steps__n" aria-hidden="true">03</span><h3>Build</h3><p>Our crews and vetted partners construct, install and wire it.</p></li>
+        <li class="rv"><span class="steps__n" aria-hidden="true">04</span><h3>Commission</h3><p>Every system is tested under real load before we hand it over.</p></li>
+        <li class="rv"><span class="steps__n" aria-hidden="true">05</span><h3>Operate and train</h3><p>We run the site with you and train your local team to take it on.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ Principles ============ -->
+  <section class="sec principles" id="principles" aria-labelledby="principles-title">
+    <div class="wrap principles__grid">
+      <header class="principles__head">
+        <h2 class="h2" id="principles-title">What <span class="nowrap">future-proof</span> means here.</h2>
+        <p class="lead">Technology will change faster than concrete. We build so the site can change with it.</p>
+      </header>
+      <ul class="principles__list">
+        <li class="rv"><h3>Modular</h3><p>Sites grow in blocks. Add megawatts, racks or robot cells without rebuilding what is there.</p></li>
+        <li class="rv"><h3>Open standards</h3><p>Equipment and software speak open protocols, so any part can be swapped for a better one later.</p></li>
+        <li class="rv"><h3>Room to upgrade</h3><p>Spare conduit, floor strength and cooling headroom for hardware that doesn't exist yet.</p></li>
+        <li class="rv"><h3>Local skills</h3><p>We hire and train close to the site, so the knowledge stays when the build crew leaves.</p></li>
+        <li class="rv"><h3>Measured</h3><p>Every site reports its output, efficiency and uptime, so decisions rest on data.</p></li>
+        <li class="rv"><h3>Safe from the first drawing</h3><p>Safety systems are part of the design. They are never added at the end.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="sec faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq__grid">
+      <header class="faq__head">
+        <h2 class="h2" id="faq-title">Questions people ask first.</h2>
+      </header>
+      <div class="faq__list">
+        <details class="qa" name="faq">
+          <summary>How much land does a solar farm need?</summary>
+          <p>A useful rule of thumb is about 2 hectares (5 acres) for each megawatt of a ground-mounted array. Shape, slope and local rules change the figure, and a site study gives you the real one.</p>
+        </details>
+        <details class="qa" name="faq">
+          <summary>Can solar run a data center around the clock?</summary>
+          <p>Solar with battery storage can cover a large share of the load. The grid or backup generation covers the rest. We size the mix for your site and the uptime you need.</p>
+        </details>
+        <details class="qa" name="faq">
+          <summary>How long does a project take?</summary>
+          <p>A small array or a single robot cell can be running within months. Large solar farms and data centers take longer, mostly because of permits and grid connections. The Assess stage gives you a timeline you can plan around.</p>
+        </details>
+        <details class="qa" name="faq">
+          <summary>Do you work on sites that already exist?</summary>
+          <p>Yes. We add storage to existing solar, liquid cooling to existing halls and robots to existing lines.</p>
+        </details>
+        <details class="qa" name="faq">
+          <summary>Do I need experience to join the Academy?</summary>
+          <p>No. The foundation modules start from the basics. If you already hold an electrical or mechanical trade, you can move through them faster.</p>
+        </details>
+        <details class="qa" name="faq">
+          <summary>How are projects paid for?</summary>
+          <p>Some clients buy the plant outright. Others lease it, or sign a power purchase agreement and pay only for the energy. We help you compare the options before you commit.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section class="sec contact inv" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact__grid">
+      <header class="contact__head">
+        <h2 class="h2" id="contact-title">Tell us what you want to build.</h2>
+        <p class="lead">Land you want to put to work, a data hall that needs power, a line to automate or a team to train. Start here.</p>
+        <div class="direct">
+          <p class="direct__label">Or write to us</p>
+          <p class="direct__row">
+            <span class="direct__addr" id="contact-email">hello@farfield.example</span>
+            <button class="textbtn" type="button" data-copy="#contact-email">Copy</button>
+          </p>
+        </div>
+      </header>
+
+      <form class="form" id="contact-form" novalidate data-endpoint="" data-email="hello@farfield.example">
+        <div class="form__row">
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input type="text" id="f-name" name="name" autocomplete="name" required>
+            <p class="field__err" id="f-name-err" hidden>Enter your name.</p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" required>
+            <p class="field__err" id="f-email-err" hidden>Enter an email address we can reply to.</p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-org">Organization <span class="field__opt">optional</span></label>
+          <input type="text" id="f-org" name="organization" autocomplete="organization">
+        </div>
+        <fieldset class="field">
+          <legend>What is it about?</legend>
+          <div class="chips">
+            <input type="radio" name="topic" id="f-topic-1" value="Solar and storage" checked><label for="f-topic-1">Solar and storage</label>
+            <input type="radio" name="topic" id="f-topic-2" value="A data center"><label for="f-topic-2">A data center</label>
+            <input type="radio" name="topic" id="f-topic-3" value="Robotics"><label for="f-topic-3">Robotics</label>
+            <input type="radio" name="topic" id="f-topic-4" value="A place at the Academy"><label for="f-topic-4">A place at the Academy</label>
+            <input type="radio" name="topic" id="f-topic-5" value="Training for my team"><label for="f-topic-5">Training for my team</label>
+            <input type="radio" name="topic" id="f-topic-6" value="Something else"><label for="f-topic-6">Something else</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="f-msg">Your message</label>
+          <textarea id="f-msg" name="message" rows="5" required></textarea>
+          <p class="field__err" id="f-msg-err" hidden>Tell us a little about what you need.</p>
+        </div>
+        <div class="form__end">
+          <button class="btn btn--primary" type="submit">Send message <svg class="btn__arrow" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M3 10h13M11 5l5 5-5 5"/></svg></button>
+        </div>
+
+        <div class="form__result" id="form-result" role="status" tabindex="-1" hidden>
+          <h3 id="form-result-title"></h3>
+          <p id="form-result-text"></p>
+          <pre class="form__draft" id="form-draft" tabindex="0"></pre>
+          <div class="form__resultactions">
+            <button class="btn btn--line btn--sm" type="button" data-copy="#form-draft">Copy message</button>
+            <a class="textbtn" id="form-mailto" href="mailto:hello@farfield.example">Open in your email app</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr inv">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <a class="brand brand--inv" href="#top" aria-label="Farfield, back to top">
+          <svg class="brand__mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false">
+            <circle class="brand__sun" cx="16" cy="9" r="5"/>
+            <path class="brand__field" d="M2 21 16 14l14 7-14 7z"/>
+          </svg>
+          <span class="brand__name">Farfield</span>
+        </a>
+        <p>Solar farms, data centers and robotics, with the people to run them.</p>
+      </div>
+      <nav class="ftr__nav" aria-label="Footer">
+        <div>
+          <h2>Build</h2>
+          <ul>
+            <li><a href="#energy">Energy</a></li>
+            <li><a href="#compute">Data centers</a></li>
+            <li><a href="#robotics">Robotics</a></li>
+            <li><a href="#more">More technology</a></li>
+            <li><a href="#estimate">Solar estimator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Academy</h2>
+          <ul>
+            <li><a href="#academy">How training works</a></li>
+            <li><a href="#tracks">The six tracks</a></li>
+            <li><a href="#contact" data-topic="A place at the Academy">Join the waitlist</a></li>
+            <li><a href="#contact" data-topic="Training for my team">Train your team</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li><a href="#process">How we work</a></li>
+            <li><a href="#principles">Principles</a></li>
+            <li><a href="#faq">Questions</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p class="ftr__word" aria-hidden="true">Farfield</p>
+    <div class="ftr__base">
+      <p>© <span id="year">2026</span> Farfield. All rights reserved.</p>
+      <p><a href="#top">Back to top</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/charts.js" defer></script>
+<script src="assets/js/campus.js" defer></script>
+<script src="assets/js/arm.js" defer></script>
+</body>
+</html>
