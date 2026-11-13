@@ -1,4 +1,4 @@
-/* Farfield — the robot arm in the Robotics section.
+/* Farwatt — the robot arm in the Robotics section.
    A side view of an arm that reaches for the pointer. It solves its two main
    joint angles from the tool position (inverse kinematics), keeps the tool
    pointing down, and can pick up the three battery modules on the bench.

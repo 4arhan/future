@@ -1,4 +1,4 @@
-/* Farfield — the site plan in the hero.
+/* Farwatt — the site plan in the hero.
    An isometric drawing of one plot: solar array, battery yard, substation,
    data hall, EV canopy, robotics cell and academy, joined by power cables.
 

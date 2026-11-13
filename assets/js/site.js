@@ -1,4 +1,4 @@
-/* Farfield — page behaviour: theme, navigation, reveals, tabs, estimator, contact form.
+/* Farwatt — page behaviour: theme, navigation, reveals, tabs, estimator, contact form.
    Each block is independent, so removing a section from the page never breaks another. */
 (function () {
   'use strict';

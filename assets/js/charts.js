@@ -1,4 +1,4 @@
-/* Farfield — the two small drawings in the Energy and Compute sections:
+/* Farwatt — the two small drawings in the Energy and Compute sections:
    1. "24 hours on a solar-plus-storage site", an SVG line chart with a crosshair readout.
    2. The rack row, a decorative canvas.
    Colors come from CSS (styles.css, "Chart series"), so both follow the theme. */

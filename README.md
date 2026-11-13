@@ -1,10 +1,10 @@
-# Farfield website
+# Farwatt website
 
 A one-page site for a company that builds solar farms, battery storage, data centers and robotic automation, and trains the technicians who run them.
 
 It is plain HTML, CSS and JavaScript. There is no build step and nothing to install.
 
-> **"Farfield" is a working title.** The name, the email address, the project figures and the Academy course lengths are placeholder content written to show the design. Replace them with your own before you publish. See [Make it yours](#make-it-yours).
+> **About the name.** "Farwatt" was picked because `farwatt.com` was unregistered when checked on 13 November 2026. Nobody has bought it for you: register it before you rely on it, and check trademarks in your country. The email address, the project figures and the Academy course lengths are still sample content. See [Make it yours](#make-it-yours).
 
 ## Preview it
 
@@ -34,6 +34,7 @@ After the first deploy, change `og:image` in `index.html` to the full address of
 | Data centers | Services, an animated rack row, and typical rack power by cooling method. |
 | Robotics | An interactive robot arm. It follows the pointer, grips on press, and runs its own pick-and-place cycle when left alone. |
 | More technology | EV charging, microgrids, drones, digital twins and more. |
+| What's next | Thirteen businesses the company is preparing for, from virtual power plants to indoor farms, on a half-circle chart that shows how soon each is expected. The chart is drawn from the lists in the HTML. |
 | Solar estimator | Sliders that turn a land area into capacity, yearly energy, homes supplied, CO₂ avoided and the data center load it could carry. |
 | Academy | Technician training: the four-step path, six tracks in a tab panel, and who it is for. |
 | How we work, Principles, Questions | Process, what "future-proof" means, and an FAQ. |
@@ -41,9 +42,9 @@ After the first deploy, change `og:image` in `index.html` to the full address of
 
 ## Make it yours
 
-**Name.** Search `index.html` for `Farfield` and replace it. The logo mark is the small `<svg class="brand__mark">` in the header and footer, and `assets/img/favicon.svg` is the browser tab icon.
+**Name.** Search `index.html` for `Farwatt` and replace it. The logo mark is the small `<svg class="brand__mark">` in the header and footer, and `assets/img/favicon.svg` is the browser tab icon.
 
-**Email address.** Search `index.html` for `hello@farfield.example`. It appears in the contact section and on the `<form>` tag.
+**Email address.** Search `index.html` for `hello@farwatt.example` and replace it with a real mailbox once you own the domain. It appears in the contact section and on the `<form>` tag.
 
 **Words and numbers.** All copy is in `index.html`. The two spec plates ("Typical project", "Typical hall"), the cooling ranges and the Academy course lengths are examples, so check each one against what you really offer.
 
@@ -71,6 +72,7 @@ index.html               All content
 assets/css/styles.css    All styles, with day and night themes
 assets/js/site.js        Theme switch, menu, scroll reveals, tabs, estimator, contact form
 assets/js/charts.js      The 24-hour chart and the rack row
+assets/js/horizon.js     The "What's next" horizon chart
 assets/js/campus.js      The animated site plan in the hero
 assets/js/arm.js         The interactive robot arm
 assets/img/              Favicon and social preview image

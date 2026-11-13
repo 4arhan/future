@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Farfield — site styles
+   Farwatt — site styles
    Layout concept: the hero is the site plan. Every section below it is a
    detail sheet for one tagged part of that plan (E energy, C compute,
    R robotics, T training).
@@ -1132,6 +1132,113 @@ html.js .chart__fallback { position: absolute; width: 1px; height: 1px; overflow
 .index p { color: var(--ink-2); font-size: 1rem; }
 @media (max-width: 1000px) { .index { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 480px) { .index { grid-template-columns: minmax(0, 1fr); } }
+
+/* The next wave: a half-circle horizon chart over four lists. */
+.horizon__fig { max-width: 60rem; margin-inline: auto; }
+.horizon__chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.horizon__chart text { font-family: var(--font); }
+.horizon__cap { max-width: 44em; margin: 1rem auto 0; font-size: var(--fs-small); color: var(--ink-3); text-align: center; text-wrap: balance; }
+
+.hz-band { fill: var(--sun); stroke: none; }
+.hz-band--1 { opacity: .1; }
+.hz-band--2 { opacity: .07; }
+.hz-band--3 { opacity: .05; }
+.hz-arc { fill: none; stroke: var(--line); stroke-width: 1; }
+.hz-arc--outer { stroke: var(--ink-3); }
+.hz-spoke { stroke: var(--line); stroke-width: 1; }
+.hz-base { stroke: var(--ink-3); stroke-width: 1.5; }
+.hz-sun { fill: var(--sun); }
+.hz-today { fill: var(--on-sun); font-size: 12px; font-weight: 700; }
+.hz-ring { fill: var(--ink-3); font-size: 11.5px; font-weight: 600; font-stretch: var(--w-label); letter-spacing: .08em; text-transform: uppercase; }
+.hz-code { fill: var(--ink); }
+.hz-code-t { fill: var(--bg); font-size: 11px; font-weight: 700; }
+.hz-pulse {
+  fill: none;
+  stroke: var(--sun);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+  animation: hz-pulse 7s cubic-bezier(.2, .6, .4, 1) infinite;
+}
+@keyframes hz-pulse {
+  0% { transform: scale(.16); opacity: 0; }
+  12% { opacity: .7; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.hz-dot { cursor: pointer; }
+.hz-hit { fill: transparent; }
+.hz-mark { transition: transform .2s; }
+.hz-num { font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; pointer-events: none; }
+.hz-dot--1 .hz-mark { fill: var(--sun); }
+.hz-dot--1 .hz-num { fill: var(--on-sun); }
+.hz-dot--2 .hz-mark { fill: var(--bg); stroke: var(--sun); stroke-width: 2; }
+.hz-dot--2 .hz-num { fill: var(--ink); }
+.hz-dot--3 .hz-mark { fill: var(--bg); stroke: var(--ink-3); stroke-width: 1.5; }
+.hz-dot--3 .hz-num { fill: var(--ink-2); }
+.hz-dot.is-hot .hz-mark { transform: scale(1.28); }
+
+.horizon__lists {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.5rem clamp(1.25rem, 2.5vw, 2.5rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+.wave__title {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.2rem;
+  font-stretch: 112%;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.waves > li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: .8rem;
+  margin-inline: -.6rem;
+  padding: 1.05rem .6rem 1.15rem;
+  border-bottom: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  transition: background-color .2s;
+}
+.waves > li.is-hot { background: var(--surface); }
+.waves__n {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: .82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.waves > li[data-ring="1"] .waves__n { background: var(--sun); color: var(--on-sun); }
+.waves > li[data-ring="2"] .waves__n { border: 2px solid var(--sun); color: var(--ink); }
+.waves > li[data-ring="3"] .waves__n { border: 1.5px solid var(--ink-3); color: var(--ink-2); }
+.waves h4 { font-size: 1.08rem; font-weight: 680; line-height: 1.25; }
+.waves .when {
+  margin-top: .2rem;
+  font-size: .72rem;
+  font-stretch: var(--w-label);
+  font-weight: 650;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.waves > li[data-ring="1"] .when { color: var(--sun-ink); }
+.waves p:not(.when) { margin-top: .45rem; color: var(--ink-2); font-size: 1rem; }
+
+@media (max-width: 1000px) { .horizon__lists { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  .horizon__lists { grid-template-columns: minmax(0, 1fr); }
+  .hz-num { font-size: 10.5px; }
+  .hz-ring { font-size: 10px; }
+  .hz-code-t { font-size: 10px; }
+}
 
 /* Estimator */
 .estimate { background: var(--bg-2); }
